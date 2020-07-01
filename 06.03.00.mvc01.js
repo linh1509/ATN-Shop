@@ -1,7 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 8080
-const PORT = process.env.PORT || 8080
+const port = process.env.PORT || 8080;
 var session = require('express-session')
 var path = require('path');
 var router = express.Router();  
@@ -208,9 +207,9 @@ function viewPayment(request, response) {
     var listkq = dssp.split("_");
 
     listsp = [];
-    for (i=0; i< listkq.length / 2; i++) {
+    for (i=0; i< listkq.length / 3; i++) {
         listsp.push(
-            { Name : "Tivi " + listkq[i*2], Price : 30000, Num: listkq[i*2+1]},
+            {Name : " " + listkq[i*3], Price : listkq[i*3+2], Num: listkq[i*3+1]},
         );
     }
     
@@ -256,4 +255,4 @@ function viewReview(request, response) {
 /// ***************** ***************** *****************
 /// ***************** ***************** *****************
 /// ***************** ***************** *****************
-app.listen(PORT, () => console.log(`\n\tWeb app listening at http://localhost:${PORT}`));
+app.listen(port, () => console.log(`\n\tWeb app listening at http://localhost:${port}`));
